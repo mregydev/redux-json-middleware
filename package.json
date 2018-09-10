@@ -1,0 +1,36 @@
+{
+  "name": "redux-json-middleware",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "node_modules/.bin/mocha  --compilers js:babel-register tests/*.spec.js",
+    "rollup-umd-debug": "cross-env NODE_ENV=debug node_modules/.bin/rollup src/index.js  --file dist/output.umd.js --format umd --name output --config rollup.config.js",
+    "rollup-umd-production": "cross-env NODE_ENV=production node_modules/.bin/rollup src/index.js  --file dist/output.umd.js --format umd  --name output --config rollup.config.js",
+    "rollup-cjs": "node_modules/.bin/rollup src/index.js  --file dist/output.cjs.js --format cjs ",
+    "rollup-es": "node_modules/.bin/rollup src/index.js   --file dist/output.es.js --format es ",
+    "build": "npm run rollup-umd-production && npm run rollup-cjs && npm run rollup-es"
+  },
+  "main": "dist/output.cjs.js",
+  "module": "dist/output.es.js",
+  "browser": "dist/output.umd.js",
+  "keywords": [],
+  "author": "mregydev",
+  "github": "https://github.com/mregydev/redux-json-middleware",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "cross-env": "^5.2.0",
+    "json-property-filter": "^1.3.1",
+    "mocha": "^5.2.0",
+    "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup": "^0.65.2",
+    "rollup-plugin-commonjs": "^9.1.6",
+    "rollup-plugin-minify-es": "^1.1.1",
+    "rollup-plugin-uglify-es": "0.0.1"
+  }
+}
