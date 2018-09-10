@@ -10,4 +10,4 @@
 <li><b>filter </b> : Arrays that holds properties names (name should start from the root) that you want to include or execlude from the json object </li>
 </ul>
 
-This middleware has three formats which are cjs,umd and es .<br>Please review examples folder to get how it is used
+This middleware has three formats which are cjs,umd and es .<br>For more information read this<a href='https://medium.com/@egydev1990/redux-json-middleware-ad99e1bef39a'> article </a> and also Please review <a href='https://github.com/mregydev/redux-json-middleware/tree/master/example'> examples </a>  to get how it is used
