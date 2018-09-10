@@ -16,39 +16,13 @@ describe('Redux-Json-MiddleWare test cases', () => {
     });
 
 
-    // it('should parse json object according to the passed action filter and execlude key1 property', (done) => {
-
-    //     const reducer = (state, action) => {
-
-    //         if (action.type == "parseJson") {
-    //             const expected = { key2: "value2" };
-
-    //             assert.deepEqual(action.data, expected);
-    //             assert.equal(action.status, "parseJson_Resolved");
-
-    //             done();
-    //         }
-    //     };
-
-    //     const store = createStore(reducer, middleWare);
-
-    //     store.dispatch({
-    //         type: "parseJson",
-    //         payload: { key1: "value1", key2: "value2" },
-    //         filter: ["-key1"]
-    //     });
-    // });
-
-
-
-    it('should parse json object according to the passed action filter and get only key1 property', (done) => {
+    it('should parse json object according to the passed action filter and execlude key1 property', (done) => {
 
         const reducer = (state, action) => {
 
             if (action.type == "parseJson") {
-                const expected = { key1: "value1" };
-                
-                console.log(action.data);
+                const expected = { key2: "value2" };
+
                 assert.deepEqual(action.data, expected);
                 assert.equal(action.status, "parseJson_Resolved");
 
@@ -60,37 +34,62 @@ describe('Redux-Json-MiddleWare test cases', () => {
 
         store.dispatch({
             type: "parseJson",
-            payload: { key1: "value1", key2: "value2",key3:{key4:{key5:"ss"}} },
-            filter: ["key4.key5"]
+            payload: { key1: "value1", key2: "value2" },
+            filter: ["-key1"]
         });
     });
 
 
-    // it('should parse json object returned from axios rquest according to the passed action filter and get only key1 property', (done) => {
 
-    //     const reducer = (state, action) => {
+    it('should parse json object according to the passed action filter and get only key1 property', (done) => {
 
-    //         if (action.type == "parseJson") {
-    //             const expected = [{ id: 4, first_name: 'Eve' },
-    //             { id: 5, first_name: 'Charles' },
-    //             { id: 6, first_name: 'Tracey' }];
+        const reducer = (state, action) => {
 
-    //             assert.deepEqual(action.data.data, expected);
-    //             assert.equal(action.status, "parseJson_Resolved");
+            if (action.type == "parseJson") {
+                const expected = { key1: "value1" };
 
-    //             done();
-    //         }
-    //     };
+                assert.deepEqual(action.data, expected);
+                assert.equal(action.status, "parseJson_Resolved");
+
+                done();
+            }
+        };
+
+        const store = createStore(reducer, middleWare);
+
+        store.dispatch({
+            type: "parseJson",
+            payload: { key1: "value1", key2: "value2" },
+            filter: ["key1"]
+        });
+    });
 
 
-    //     const store = createStore(reducer, middleWare);
+    it('should parse json object returned from axios rquest according to the passed action filter and get only key1 property', (done) => {
 
-    //     store.dispatch({
-    //         type: "parseJson",
-    //         payload: axios.get("https://reqres.in/api/users?page=2"),
-    //         filter: ["data.id", "data.first_name"],
-    //         jsonProperty: "data"
-    //     });
-    // });
+        const reducer = (state, action) => {
+
+            if (action.type == "parseJson") {
+                const expected = [{ id: 4, first_name: 'Eve' },
+                { id: 5, first_name: 'Charles' },
+                { id: 6, first_name: 'Tracey' }];
+
+                assert.deepEqual(action.data.data, expected);
+                assert.equal(action.status, "parseJson_Resolved");
+
+                done();
+            }
+        };
+
+
+        const store = createStore(reducer, middleWare);
+
+        store.dispatch({
+            type: "parseJson",
+            payload: axios.get("https://reqres.in/api/users?page=2"),
+            filter: ["data.id", "data.first_name"],
+            jsonProperty: "data"
+        });
+    });
 
 });
