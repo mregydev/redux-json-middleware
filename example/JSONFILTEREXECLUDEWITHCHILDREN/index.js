@@ -22,6 +22,6 @@ export default () => {
     store.dispatch({
         type: "parseJson",
         payload:student,
-        filter: ["-student.details","-school"]
+        filter: ["-student.details","-school"] 
     });
 };
