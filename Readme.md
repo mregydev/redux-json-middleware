@@ -1,4 +1,4 @@
-<b>REDUX-JSON-MIDDLEWARE</b> is a middle ware for processing json objects that can be used to process a json object before being passed to the reducer.
+<b>REDUX-JSON-MIDDLEWARE</b> is a middle ware for processing json objects that can be used to process a json object before being passed to the reducer as you can access proccessed json object inside the reducer through the action <b>data</b> property .
 
 
 <br>To use it you should attach following properties with the action object passed to the dispatch :<br>
