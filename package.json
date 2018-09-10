@@ -1,6 +1,6 @@
 {
   "name": "redux-json-middleware",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "scripts": {
     "test": "node_modules/.bin/mocha  --compilers js:babel-register tests/*.spec.js",
@@ -13,7 +13,7 @@
   "main": "dist/output.cjs.js",
   "module": "dist/output.es.js",
   "browser": "dist/output.umd.js",
-  "keywords": [],
+  "keywords": ["redux","middlware","json","redux-middleware","redux-json-middleware"],
   "author": "mregydev",
   "github": "https://github.com/mregydev/redux-json-middleware",
   "license": "ISC",
