@@ -63,7 +63,7 @@ describe('Redux-Json-MiddleWare test cases', () => {
             filter: ["key1"]
         });
     });
-
+ 
 
     it('should parse json object returned from axios rquest according to the passed action filter and get only key1 property', (done) => {
 
@@ -75,7 +75,7 @@ describe('Redux-Json-MiddleWare test cases', () => {
                 { id: 6, first_name: 'Tracey' }];
 
                 assert.deepEqual(action.data.data, expected);
-                assert.equal(action.status, "parseJson_Resolved");
+                assert.equal(action.status, "parseJson_Resolved"); 
 
                 done();
             }
