@@ -8,8 +8,12 @@
     "rollup-umd-production": "cross-env NODE_ENV=production node_modules/.bin/rollup src/index.js  --file dist/output.umd.js --format umd  --name output --config rollup.config.js",
     "rollup-cjs": "node_modules/.bin/rollup src/index.js  --file dist/output.cjs.js --format cjs ",
     "rollup-es": "node_modules/.bin/rollup src/index.js   --file dist/output.es.js --format es ",
-    "build": "npm run rollup-umd-production && npm run rollup-cjs && npm run rollup-es"
+    "build": "npm run rollup-umd-production && npm run rollup-cjs && npm run rollup-es",
+    "cov": "node_modules/.bin/nyc node_modules/.bin/mocha   --compilers js:babel-register tests/*.spec.js",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "ci":"npm run cov && npm run report-coverage"
   },
+  "report-coverage": "codecov",
   "main": "dist/output.cjs.js",
   "module": "dist/output.es.js",
   "browser": "dist/output.umd.js",
@@ -30,14 +34,16 @@
     "redux": "^4.0.0"
   },
   "devDependencies": {
-    "rollup-plugin-node-resolve": "^3.4.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "codecov": "^3.2.0",
+    "cross-env": "^5.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.3.0",
     "rollup": "^0.65.2",
     "rollup-plugin-commonjs": "^9.1.6",
     "rollup-plugin-minify-es": "^1.1.1",
-    "rollup-plugin-uglify-es": "0.0.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-register": "^6.26.0",
-    "cross-env": "^5.2.0",
-    "mocha": "^5.2.0"
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-uglify-es": "0.0.1"
   }
 }
