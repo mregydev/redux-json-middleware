@@ -1,0 +1,8 @@
+ {
+    "exclude": [
+      "tests/*.spec.js"
+    ],
+     "check-coverage":true,
+    "statements":80,
+     "lines":80
+  }
