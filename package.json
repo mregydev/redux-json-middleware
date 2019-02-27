@@ -27,7 +27,7 @@
     "redux-json"
   ],
   "author": "mregydev",
-  "repository": "https://github.com/mregydev/redux-json-middleware",
+  "repository": {"url":"https://github.com/mregydev/redux-json-middleware","type": "github"},
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
